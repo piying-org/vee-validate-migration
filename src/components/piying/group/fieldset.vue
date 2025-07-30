@@ -6,7 +6,7 @@ import { inject } from 'vue'
 const dInputs = defineProps<{
   fields: PiResolvedViewFieldConfig[]
 }>()
-const field = inject(PI_VIEW_FIELD_TOKEN)
+const field = inject(PI_VIEW_FIELD_TOKEN)!
 const props = signalToRef(() => field?.value.props())
 </script>
 <template>

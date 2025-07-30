@@ -1,6 +1,15 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-
+// import ChecboxAndRadioInputs from './views/Checkbox-and-Radio-Inputs.vue'
+import ValidatingRadioInputs from './views/Validating-Radio-Inputs.vue'
+import ValidatingCheckboxInputs from './views/Validating-Checkbox-Inputs.vue'
+import CustomInputs from './views/Custom-Inputs.vue'
+import AsyncValidation from './views/Async-Validation.vue'
+import CrossFieldValidation from './views/Cross-Field-Validation.vue'
+import ArrayFields from './views/Array-Fields.vue'
+import CustomCheckboxes from './views/Custom-Checkboxes.vue'
+import HigherOrderComponents from './views/Higher-Order-Components.vue'
+import Stores from './views/Stores.vue'
+import CurrencyFormatExample from './views/Currency-Format-Example.vue'
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
 const browserLanguage = navigator.language
@@ -10,7 +19,36 @@ if (browserLanguage.startsWith('zh')) {
 </script>
 
 <template>
-  <RouterView />
+  <a href="https://vee-validate.logaretm.com/v4/examples/checkboxes-and-radio/"
+    >Validating Radio Inputs
+  </a>
+  <ValidatingRadioInputs></ValidatingRadioInputs>
+  <a href="https://vee-validate.logaretm.com/v4/examples/checkboxes-and-radio/"
+    >Validating Checkbox Inputs
+  </a>
+  <ValidatingCheckboxInputs></ValidatingCheckboxInputs>
+  <a href="https://vee-validate.logaretm.com/v4/examples/custom-inputs/">Custom Inputs </a>
+  <CustomInputs></CustomInputs>
+  <a href="https://vee-validate.logaretm.com/v4/examples/async-validation/">Async Validation</a>
+  <AsyncValidation></AsyncValidation>
+  <a href="https://vee-validate.logaretm.com/v4/examples/cross-field-validation/"
+    >Cross-Field Validation
+  </a>
+  <CrossFieldValidation></CrossFieldValidation>
+  <a href="https://vee-validate.logaretm.com/v4/examples/array-fields/">Array Fields</a>
+  <ArrayFields></ArrayFields>
+  <a href="https://vee-validate.logaretm.com/v4/examples/custom-checkboxes/">Custom Checkboxes</a>
+  <CustomCheckboxes></CustomCheckboxes>
+  <a href="https://vee-validate.logaretm.com/v4/examples/multistep-form-wizard/"
+    >Higher Order Components
+  </a>
+  <HigherOrderComponents></HigherOrderComponents>
+  <a href="https://vee-validate.logaretm.com/v4/examples/using-stores/">Stores </a>
+  <Stores></Stores>
+  <a href="https://vee-validate.logaretm.com/v4/examples/value-formatting/"
+    >Currency Format Example
+  </a>
+  <CurrencyFormatExample></CurrencyFormatExample>
 </template>
 
 <style scoped></style>

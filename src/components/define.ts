@@ -5,19 +5,33 @@ import InputCheckbox from './piying/input-checkbox.vue'
 import FieldsetGroup from './piying/group/fieldset.vue'
 import LabelWrapper from './piying/wrapper/label-wrapper.vue'
 import ValidatorWrapper from './piying/wrapper/validator-wrapper.vue'
-import type { PiViewConfig } from '@piying/view-vue'
+import FormHelper from './piying/form-helper.vue'
+import { PiyingViewGroup, type PiViewConfig } from '@piying/view-vue'
+import ArrayRw from './piying/group/array-rw.vue'
+import InputSwap from './piying/input-swap.vue'
+import Step from './piying/group/step.vue'
+import CurrencyInput from './piying/currency-input.vue'
+import MultiCheckbox from './piying/multi-checkbox.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
+    'currency-input': { type: CurrencyInput },
     number: { type: InputNumber, wrappers: ['label'] },
     radio: { type: InputRadio },
     boolean: { type: InputCheckbox, wrappers: ['label'] },
     fieldset: { type: FieldsetGroup },
+    formHelper: { type: FormHelper },
+    'array-rw': { type: ArrayRw },
+    'array-ro': { type: PiyingViewGroup },
+    'custom-checkbox': { type: InputSwap },
+    'multi-checkbox': { type: MultiCheckbox },
+    step: { type: Step },
   },
   wrappers: {
     label: {
       type: LabelWrapper,
     },
+
     validator: {
       type: ValidatorWrapper,
     },

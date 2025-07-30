@@ -15,7 +15,7 @@ const errorStr = signalToRef(() => {
     if (valibot) {
       return summarize(valibot)
     } else {
-      return Object.values(fc.form.root!.errors!)
+      return Object.values(errors!)
         .map((item) => (typeof item === 'string' ? item : JSON.stringify(item)))
         .join('\n')
     }
@@ -24,11 +24,18 @@ const errorStr = signalToRef(() => {
 const isChangedStatus = signalToRef(
   () => field.value.form.control?.dirty$$() || field.value.form.control?.touched$$(),
 )
+const forceShowError = signalToRef(() => field.value.props()['forceShowError'])
+let successMessage = signalToRef(() => field.value.props()['successMessage'])
 </script>
 <template>
   <div :class="statusClass">
     <slot></slot>
-    <div class="text-error" v-if="hasError && isChangedStatus">{{ errorStr }}</div>
+    <div class="text-error" v-if="forceShowError || (hasError && isChangedStatus)">
+      {{ errorStr }}
+    </div>
+    <template v-else>
+      <div v-if="!hasError && successMessage" class="text-success">{{ successMessage }}</div>
+    </template>
   </div>
 </template>
 
