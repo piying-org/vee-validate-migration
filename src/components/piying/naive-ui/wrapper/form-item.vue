@@ -18,9 +18,7 @@ let status$$ = signalToRef(() => {
   }
 })
 let message = signalToRef(() => {
-  let status = status$$.value
-  console.log('状态',status);
-  
+  let status = status$$.value 
   return status === 'error' ? errorString(field.value) : ''
 })
 
