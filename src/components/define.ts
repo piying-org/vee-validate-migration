@@ -30,6 +30,10 @@ import AntCheckbox from './piying/ant-design/checkbox.vue'
 import AntDropDown from './piying/ant-design/dropdown.vue'
 import AntInputText from './piying/ant-design/input-text.vue'
 import AntFormItem from './piying/ant-design/wrapper/form-item.vue'
+import NaiveUiCheckbox from './piying/naive-ui/checkbox.vue'
+import NaiveUiDropdown from './piying/naive-ui/dropdown.vue'
+import NaiveUiInputText from './piying/naive-ui/input-text.vue'
+import NaiveUiFormItem from './piying/naive-ui/wrapper/form-item.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -96,6 +100,15 @@ export const fieldConfig = {
     'ant-dropdown': {
       type: AntDropDown,
     },
+    'naive-ui-input-text': {
+      type: NaiveUiInputText,
+    },
+    'naive-ui-checkbox': {
+      type: NaiveUiCheckbox,
+    },
+    'naive-ui-dropdown': {
+      type: NaiveUiDropdown,
+    },
   },
   wrappers: {
     label: {
@@ -107,6 +120,9 @@ export const fieldConfig = {
     },
     'ant-form-item': {
       type: AntFormItem,
+    },
+    'naive-ui-form-item': {
+      type: NaiveUiFormItem,
     },
   },
 } as PiViewConfig

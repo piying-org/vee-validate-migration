@@ -1,0 +1,19 @@
+<script setup lang="ts">
+import { useControlValueAccessor } from '@piying/view-vue'
+import { vModelDynamic, watch } from 'vue'
+import { NInput } from "naive-ui";
+const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+defineExpose({ cva })
+
+</script>
+<template>
+  <NInput
+    :value="value"
+    :onUpdate:value="valueChange"
+    v-bind:disabled="disabled"
+    @blur="touchedChange"
+  >
+  </NInput>
+</template>
+
+<style scoped></style>

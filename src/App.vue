@@ -17,6 +17,7 @@ import ElementPlus from './views/Element-Plus.vue'
 import HeadlessUI from './views/Headless-UI.vue'
 import IonicFramework from './views/Ionic-Framework.vue'
 import AntDesign from './views/ant-design.vue'
+import NaiveUi from './views/naive-ui.vue'
 
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
@@ -72,6 +73,8 @@ if (browserLanguage.startsWith('zh')) {
 
   <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Ant Design </a>
   <AntDesign></AntDesign>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Naive UI </a>
+  <NaiveUi></NaiveUi>
 </template>
 
 <style scoped></style>

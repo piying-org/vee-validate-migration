@@ -28,6 +28,7 @@
     "element-plus": "^2.10.4",
     "json-formatter-js": "^2.5.23",
     "material-icons": "^1.13.14",
+    "naive-ui": "^2.42.0",
     "numbro": "^2.5.0",
     "pinia": "^3.0.3",
     "primeicons": "^7.0.0",
