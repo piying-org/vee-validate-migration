@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { PI_VIEW_FIELD_TOKEN, signalToRef } from '@piying/view-vue'
 import { inject } from 'vue'
-const field = inject(PI_VIEW_FIELD_TOKEN)
-const props = signalToRef(() => field?.value.props())
+const field = inject(PI_VIEW_FIELD_TOKEN)!
+const props = signalToRef(() => field.value.props())
+let isRequired = signalToRef(() => !!field.value.form.control?.required$$())
 </script>
 <template>
   <div
@@ -19,11 +20,21 @@ const props = signalToRef(() => field?.value.props())
         props['titlePosition'] === 'top'
       "
     >
-      <span class="label" v-if="props['title']">{{ props['title'] }}</span>
+      <template v-if="props['title']">
+        <div>
+          <span class="text-red-500" v-if="isRequired">*</span>
+          <span class="label">{{ props['title'] }}</span>
+        </div>
+      </template>
     </template>
     <slot></slot>
     <template v-if="props['titlePosition'] === 'right'">
-      <span class="label" v-if="props['title']">{{ props['title'] }}</span>
+      <template v-if="props['title']">
+        <div>
+          <span class="text-red-500" v-if="isRequired">*</span>
+          <span class="label">{{ props['title'] }}</span>
+        </div>
+      </template>
     </template>
   </div>
 </template>

@@ -13,6 +13,8 @@ import CurrencyFormatExample from './views/Currency-Format-Example.vue'
 import Vuetify from "./views/Vuetify.vue";
 import PrimeVue from "./views/PrimeVue.vue";
 import Quasar from "./views/Quasar.vue";
+import ElementPlus from "./views/Element-Plus.vue";
+
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
 const browserLanguage = navigator.language
@@ -64,6 +66,10 @@ if (browserLanguage.startsWith('zh')) {
     >Quasar
   </a>
   <Quasar></Quasar>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/"
+    >ElementPlus
+  </a>
+  <ElementPlus></ElementPlus>
 </template>
 
 <style scoped></style>

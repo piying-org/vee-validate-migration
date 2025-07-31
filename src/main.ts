@@ -13,6 +13,8 @@ import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
 import { Quasar } from 'quasar'
 import 'quasar/dist/quasar.prod.css';
+import 'element-plus/dist/index.css';
+import ElementPlus from 'element-plus';
 
 const vuetify = createVuetify({
   components,
@@ -27,6 +29,7 @@ app.use(PrimeVue, {
   },
 })
 app.use(Quasar, {})
+app.use(ElementPlus);
 
 app.use(createPinia())
 app.use(router)

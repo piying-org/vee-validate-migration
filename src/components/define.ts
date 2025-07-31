@@ -20,7 +20,10 @@ import PrimeVueDropdown from './piying/prime-vue/dropdown.vue'
 import QuasarInputText from './piying/quasar/input-text.vue'
 import QuasarDropdown from './piying/quasar/dropdown.vue'
 import QuasarCheckbox from './piying/quasar/checkbox.vue'
-import QuasarForm from "./piying/quasar/group/form.vue";
+import QuasarForm from './piying/quasar/group/form.vue'
+import ElementPlusInputText from './piying/element-plus/input-text.vue'
+import ElementPlusDropdown from './piying/element-plus/dropdown.vue'
+import ElementPlusCheckbox from './piying/element-plus/checkbox.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -61,6 +64,16 @@ export const fieldConfig = {
     },
     'quasar-form': {
       type: QuasarForm,
+    },
+
+    'element-plus-input-text': {
+      type: ElementPlusInputText,
+    },
+    'element-plus-checkbox': {
+      type: ElementPlusCheckbox,
+    },
+    'element-plus-dropdown': {
+      type: ElementPlusDropdown,
     },
   },
   wrappers: {

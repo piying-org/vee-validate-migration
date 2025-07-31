@@ -21,6 +21,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "@valibot/i18n": "^1.0.0",
     "daisyui": "^5.0.47",
+    "element-plus": "^2.10.4",
     "json-formatter-js": "^2.5.23",
     "material-icons": "^1.13.14",
     "numbro": "^2.5.0",
