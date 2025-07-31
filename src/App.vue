@@ -10,10 +10,11 @@ import CustomCheckboxes from './views/Custom-Checkboxes.vue'
 import HigherOrderComponents from './views/Higher-Order-Components.vue'
 import Stores from './views/Stores.vue'
 import CurrencyFormatExample from './views/Currency-Format-Example.vue'
-import Vuetify from "./views/Vuetify.vue";
-import PrimeVue from "./views/PrimeVue.vue";
-import Quasar from "./views/Quasar.vue";
-import ElementPlus from "./views/Element-Plus.vue";
+import Vuetify from './views/Vuetify.vue'
+import PrimeVue from './views/PrimeVue.vue'
+import Quasar from './views/Quasar.vue'
+import ElementPlus from './views/Element-Plus.vue'
+import HeadlessUI from './views/Headless-UI.vue'
 
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
@@ -54,22 +55,14 @@ if (browserLanguage.startsWith('zh')) {
     >Currency Format Example
   </a>
   <CurrencyFormatExample></CurrencyFormatExample>
-  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/"
-    >Vuetify
-  </a>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Vuetify </a>
   <Vuetify></Vuetify>
-  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/"
-    >PrimeVue
-  </a>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">PrimeVue </a>
   <PrimeVue></PrimeVue>
-  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/"
-    >Quasar
-  </a>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Quasar </a>
   <Quasar></Quasar>
-  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/"
-    >ElementPlus
-  </a>
-  <ElementPlus></ElementPlus>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">HeadlessUI </a>
+  <HeadlessUI></HeadlessUI>
 </template>
 
 <style scoped></style>

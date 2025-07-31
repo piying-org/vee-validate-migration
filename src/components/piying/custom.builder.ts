@@ -20,7 +20,11 @@ export class CustomBuilder extends VueFormBuilder {
     )
     const inputs$$ = linkedSignal(() => {
       let value = getSignalValue(inputs)
-      if (rawConfig.type === 'picklist' || rawConfig.type === 'radio') {
+      if (
+        rawConfig.type === 'picklist' ||
+        rawConfig.type === 'radio' ||
+        rawConfig.type === 'headless-ui-dropdown'
+      ) {
         const options = options$$()
         if (options && !value.options) {
           value = { ...value, options }

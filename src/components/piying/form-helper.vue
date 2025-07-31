@@ -13,7 +13,7 @@ let errorStr$$ = computed(() => {
     return ''
   }
   const errors = errors$$.value
-  
+
   if (errors['valibot']) {
     return summarize(errors['valibot'])
   } else {
@@ -37,19 +37,21 @@ function saveInit() {
 const forceShowError = signalToRef(() => field.value.props()['forceShowError'])
 </script>
 <template>
-  <div v-html="formatedHtml"></div>
+  <div>
+    <div v-html="formatedHtml"></div>
 
-  <template class="text-error" v-if="forceShowError || (hasError && isChangedStatus)">
-    <div>
-      <label class="label">Form Error</label>
-      <pre class="mt-2 text-error">{{ errorStr$$ }}</pre>
+    <template class="text-error" v-if="forceShowError || (hasError && isChangedStatus)">
+      <div>
+        <label class="label">Form Error</label>
+        <pre class="mt-2 text-error">{{ errorStr$$ }}</pre>
+      </div>
+    </template>
+
+    <div class="flex gap-2 items-center">
+      <button :disabled="control.invalid" class="btn btn-primary" @click="submit()">Submit</button>
+      <button class="btn btn-outline btn-secondary" @click="resetForm()">Reset</button>
+      <button class="btn btn-outline btn-accent" @click="saveInit()">Update Intial Values</button>
     </div>
-  </template>
-
-  <div class="flex gap-2 items-center">
-    <button :disabled="control.invalid" class="btn btn-primary" @click="submit()">Submit</button>
-    <button class="btn btn-outline btn-secondary" @click="resetForm()">Reset</button>
-    <button class="btn btn-outline btn-accent" @click="saveInit()">Update Intial Values</button>
   </div>
 </template>
 

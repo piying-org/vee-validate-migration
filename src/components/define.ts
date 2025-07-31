@@ -24,6 +24,7 @@ import QuasarForm from './piying/quasar/group/form.vue'
 import ElementPlusInputText from './piying/element-plus/input-text.vue'
 import ElementPlusDropdown from './piying/element-plus/dropdown.vue'
 import ElementPlusCheckbox from './piying/element-plus/checkbox.vue'
+import HeadlessUiCheckbox from './piying/headless-ui/dropdown.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -74,6 +75,9 @@ export const fieldConfig = {
     },
     'element-plus-dropdown': {
       type: ElementPlusDropdown,
+    },
+    'headless-ui-dropdown': {
+      type: HeadlessUiCheckbox,
     },
   },
   wrappers: {
