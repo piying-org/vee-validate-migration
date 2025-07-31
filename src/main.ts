@@ -15,6 +15,7 @@ import { Quasar } from 'quasar'
 import 'quasar/dist/quasar.prod.css'
 import 'element-plus/dist/index.css'
 import ElementPlus from 'element-plus'
+import Antd from 'ant-design-vue';
 
 const vuetify = createVuetify({
   components,
@@ -30,6 +31,7 @@ app.use(PrimeVue, {
 })
 app.use(Quasar, {})
 app.use(ElementPlus)
+app.use(Antd);
 
 app.use(createPinia())
 app.use(router)

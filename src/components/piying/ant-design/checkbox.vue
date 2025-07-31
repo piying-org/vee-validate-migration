@@ -1,23 +1,19 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
 import { vModelDynamic, watch } from 'vue'
-import InputText from 'primevue/inputtext'
+import { Checkbox } from 'ant-design-vue'
 
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
-function valueChagne2(value: any) {
-  valueChange?.(value)
-}
 </script>
 <template>
-  <InputText
-    v-model="value"
-    @update:modelValue="valueChagne2"
+  <Checkbox
+    :checked="value"
+    :onUpdate:checked="valueChange"
     v-bind:disabled="disabled"
+    binary
     @blur="touchedChange"
   />
 </template>
 
-<style scoped>
-@import 'primeicons/primeicons.css';
-</style>
+<style scoped></style>

@@ -23,6 +23,7 @@
     "@primeuix/themes": "^1.2.2",
     "@tailwindcss/vite": "^4.1.11",
     "@valibot/i18n": "^1.0.0",
+    "ant-design-vue": "^4.2.6",
     "daisyui": "^5.0.47",
     "element-plus": "^2.10.4",
     "json-formatter-js": "^2.5.23",

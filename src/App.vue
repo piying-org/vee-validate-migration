@@ -16,6 +16,8 @@ import Quasar from './views/Quasar.vue'
 import ElementPlus from './views/Element-Plus.vue'
 import HeadlessUI from './views/Headless-UI.vue'
 import IonicFramework from './views/Ionic-Framework.vue'
+import AntDesign from './views/ant-design.vue'
+
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
 const browserLanguage = navigator.language
@@ -67,6 +69,9 @@ if (browserLanguage.startsWith('zh')) {
   <HeadlessUI></HeadlessUI>
   <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Ionic Framework </a>
   <IonicFramework></IonicFramework>
+
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Ant Design </a>
+  <AntDesign></AntDesign>
 </template>
 
 <style scoped></style>

@@ -26,6 +26,10 @@ import ElementPlusDropdown from './piying/element-plus/dropdown.vue'
 import ElementPlusCheckbox from './piying/element-plus/checkbox.vue'
 import HeadlessUiCheckbox from './piying/headless-ui/dropdown.vue'
 import IonicInputText from './piying/ionic/input-text.vue'
+import AntCheckbox from './piying/ant-design/checkbox.vue'
+import AntDropDown from './piying/ant-design/dropdown.vue'
+import AntInputText from './piying/ant-design/input-text.vue'
+import AntFormItem from './piying/ant-design/wrapper/form-item.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -83,6 +87,15 @@ export const fieldConfig = {
     'ionic-input-text': {
       type: IonicInputText,
     },
+    'ant-input-text': {
+      type: AntInputText,
+    },
+    'ant-checkbox': {
+      type: AntCheckbox,
+    },
+    'ant-dropdown': {
+      type: AntDropDown,
+    },
   },
   wrappers: {
     label: {
@@ -91,6 +104,9 @@ export const fieldConfig = {
 
     validator: {
       type: ValidatorWrapper,
+    },
+    'ant-form-item': {
+      type: AntFormItem,
     },
   },
 } as PiViewConfig
