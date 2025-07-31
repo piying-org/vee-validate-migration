@@ -15,7 +15,10 @@ export class VueTifyBuilder extends VueFormBuilder {
     const inputs$$ = linkedSignal(() => {
       let value = getSignalValue(inputs)
       const label = getSignalValue(props)['title']
-      return { ...value, label }
+      if (label) {
+        return { ...value, label }
+      }
+      return value
     })
 
     return {

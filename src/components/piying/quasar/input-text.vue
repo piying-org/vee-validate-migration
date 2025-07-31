@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { PI_VIEW_FIELD_TOKEN, signalToRef, useControlValueAccessor } from '@piying/view-vue'
-import { computed } from '@vue/reactivity'
+import { PI_VIEW_FIELD_TOKEN, useControlValueAccessor } from '@piying/view-vue'
+import { inject, vModelDynamic, watch } from 'vue'
 import { summarize } from 'valibot'
-import { effect, inject, vModelDynamic, watch, watchEffect } from 'vue'
-import { fi } from 'vuetify/locale'
+import { QInput } from 'quasar'
 import { errorString } from '../util/error-string'
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
 
 const field = inject(PI_VIEW_FIELD_TOKEN)!
+
 let message = () => {
   return field.value.form.control!.valid ? true : errorString(field.value)
 }
@@ -17,15 +17,13 @@ function valueChagne2(value: any) {
 }
 </script>
 <template>
-  <v-text-field
-    @update:modelValue="valueChagne2"
+  <q-input
     v-model="value"
+    @update:modelValue="valueChagne2"
     v-bind:disabled="disabled"
     @blur="touchedChange"
     :rules="[message]"
-  ></v-text-field>
+  ></q-input>
 </template>
 
-<style scoped>
-@import 'vuetify/styles';
-</style>
+<style scoped></style>
