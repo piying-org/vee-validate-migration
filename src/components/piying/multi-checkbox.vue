@@ -11,7 +11,7 @@ let selectedList = shallowRef(
     return value.value?.includes(option.value)
   }),
 )
-function valueChagne2(checked: boolean, index: number) {
+function valueChange2(checked: boolean, index: number) {
   selectedList.value[index] = checked
   valueChange(
     selectedList.value
@@ -26,7 +26,7 @@ function valueChagne2(checked: boolean, index: number) {
       type="checkbox"
       class="checkbox"
       v-model-dynamic="selectedList[index]"
-      :onUpdate:modelValue="(bool: boolean) => valueChagne2(bool, index)"
+      :onUpdate:modelValue="(bool: boolean) => valueChange2(bool, index)"
       v-bind:disabled="disabled"
       @blur="touchedChange"
     />

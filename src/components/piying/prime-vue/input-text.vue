@@ -5,14 +5,12 @@ import InputText from 'primevue/inputtext'
 
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
-function valueChagne2(value: any) {
-  valueChange?.(value)
-}
+
 </script>
 <template>
   <InputText
     v-model="value"
-    @update:modelValue="valueChagne2"
+    @update:modelValue="valueChange"
     v-bind:disabled="disabled"
     @blur="touchedChange"
   />

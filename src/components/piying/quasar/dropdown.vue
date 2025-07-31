@@ -21,14 +21,12 @@ const props = withDefaults(defineProps<{ options?: any[]; optionConvert?: Option
 const resolvedOptions = computed(() => {
   return transformOptions(props.options, props.optionConvert)
 })
-function valueChagne2(value: any) {
-  valueChange?.(value.value)
-}
+
 </script>
 <template>
   <q-select
     v-model="value"
-    @update:modelValue="valueChagne2"
+    @update:modelValue="valueChange"
     @blur="touchedChange"
     :options="resolvedOptions"
     v-bind:disabled="disabled ? '' : undefined"

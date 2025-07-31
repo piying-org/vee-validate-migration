@@ -12,14 +12,12 @@ const field = inject(PI_VIEW_FIELD_TOKEN)!
 let message = () => {
   return field.value.form.control!.valid ? true : errorString(field.value)
 }
-function valueChagne2(value: any) {
-  valueChange?.(value)
-}
+
 </script>
 <template>
   <q-input
     v-model="value"
-    @update:modelValue="valueChagne2"
+    @update:modelValue="valueChange"
     v-bind:disabled="disabled"
     @blur="touchedChange"
     :rules="[message]"

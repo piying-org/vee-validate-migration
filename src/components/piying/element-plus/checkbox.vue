@@ -5,14 +5,12 @@ import { ElCheckbox } from 'element-plus'
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
 
-function valueChagne2(value: any) {
-  valueChange?.(value)
-}
+
 </script>
 
 <template>
   <el-checkbox
-    @update:modelValue="valueChagne2"
+    @update:modelValue="valueChange"
     v-model="value"
     v-bind:disabled="disabled"
     @blur="touchedChange"

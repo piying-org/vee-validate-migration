@@ -12,13 +12,11 @@ let message = () => {
     ? true
     : summarize(field.value.form.control!.errors!['valibot'])
 }
-function valueChagne2(value: any) {
-  valueChange?.(value)
-}
+
 </script>
 <template>
   <v-checkbox
-    @update:modelValue="valueChagne2"
+    @update:modelValue="valueChange"
     v-model="value"
     v-bind:disabled="disabled"
     @blur="touchedChange"

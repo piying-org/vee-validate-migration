@@ -8,7 +8,8 @@ import {
   transformOptions,
   type OptionConvert,
 } from '../util/options'
-import { ElSelect, ElOption } from 'element-plus'
+import { BFormSelect } from 'bootstrap-vue-next'
+
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
 const props = withDefaults(defineProps<{ options?: any[]; optionConvert?: OptionConvert }>(), {
@@ -20,22 +21,20 @@ const props = withDefaults(defineProps<{ options?: any[]; optionConvert?: Option
 const resolvedOptions = computed(() => {
   return transformOptions(props.options, props.optionConvert)
 })
-
 </script>
 <template>
-  <el-select
+  <BFormSelect
     v-model="value"
     @update:modelValue="valueChange"
-    @blur="touchedChange"
     v-bind:disabled="disabled"
-  >
-    <el-option
-      v-for="(item, index) in resolvedOptions"
-      :key="index"
-      :label="item.label"
-      :value="item.value"
-    />
-  </el-select>
+    @blur="touchedChange"
+    :options="resolvedOptions"
+    value-field="value"
+    text-field="label"
+  ></BFormSelect>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import 'bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
+</style>

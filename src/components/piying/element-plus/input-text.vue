@@ -10,14 +10,12 @@ defineExpose({ cva })
 const field = inject(PI_VIEW_FIELD_TOKEN)!
 
 
-function valueChagne2(value: any) {
-  valueChange?.(value)
-}
+
 </script>
 <template>
   <el-input
     v-model="value"
-    @update:modelValue="valueChagne2"
+    @update:modelValue="valueChange"
     v-bind:disabled="disabled"
     @blur="touchedChange"
   ></el-input>

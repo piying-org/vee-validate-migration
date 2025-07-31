@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
 import { vModelDynamic, watch } from 'vue'
-import { QCheckbox } from 'quasar'
-
+import { BFormInput } from 'bootstrap-vue-next'
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
-
-
 </script>
-
 <template>
-  <q-checkbox
-    @update:modelValue="valueChange"
+  <BFormInput
     v-model="value"
-    v-bind:disabled="disabled ? '' : undefined"
+    @update:modelValue="valueChange"
+    v-bind:disabled="disabled"
     @blur="touchedChange"
-  ></q-checkbox>
+  >
+  </BFormInput>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import 'bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
+</style>

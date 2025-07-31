@@ -34,6 +34,10 @@ import NaiveUiCheckbox from './piying/naive-ui/checkbox.vue'
 import NaiveUiDropdown from './piying/naive-ui/dropdown.vue'
 import NaiveUiInputText from './piying/naive-ui/input-text.vue'
 import NaiveUiFormItem from './piying/naive-ui/wrapper/form-item.vue'
+import BootstrapCheckbox from './piying/bootstrap/checkbox.vue'
+import BootstrapDropdown from './piying/bootstrap/dropdown.vue'
+import BootstrapInputText from './piying/bootstrap/input-text.vue'
+import BootstrapFormItem from './piying/bootstrap/wrapper/form-item.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -109,6 +113,15 @@ export const fieldConfig = {
     'naive-ui-dropdown': {
       type: NaiveUiDropdown,
     },
+    'bootstrap-input-text': {
+      type: BootstrapInputText,
+    },
+    'bootstrap-checkbox': {
+      type: BootstrapCheckbox,
+    },
+    'bootstrap-dropdown': {
+      type: BootstrapDropdown,
+    },
   },
   wrappers: {
     label: {
@@ -123,6 +136,9 @@ export const fieldConfig = {
     },
     'naive-ui-form-item': {
       type: NaiveUiFormItem,
+    },
+    'bootstrap-form-item': {
+      type: BootstrapFormItem,
     },
   },
 } as PiViewConfig
