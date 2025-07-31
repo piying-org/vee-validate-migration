@@ -15,7 +15,7 @@ import PrimeVue from './views/PrimeVue.vue'
 import Quasar from './views/Quasar.vue'
 import ElementPlus from './views/Element-Plus.vue'
 import HeadlessUI from './views/Headless-UI.vue'
-
+import IonicFramework from './views/Ionic-Framework.vue'
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
 const browserLanguage = navigator.language
@@ -61,8 +61,12 @@ if (browserLanguage.startsWith('zh')) {
   <PrimeVue></PrimeVue>
   <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Quasar </a>
   <Quasar></Quasar>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Element Plus </a>
+  <ElementPlus></ElementPlus>
   <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">HeadlessUI </a>
   <HeadlessUI></HeadlessUI>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/">Ionic Framework </a>
+  <IonicFramework></IonicFramework>
 </template>
 
 <style scoped></style>

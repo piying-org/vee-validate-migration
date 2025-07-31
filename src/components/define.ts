@@ -25,6 +25,7 @@ import ElementPlusInputText from './piying/element-plus/input-text.vue'
 import ElementPlusDropdown from './piying/element-plus/dropdown.vue'
 import ElementPlusCheckbox from './piying/element-plus/checkbox.vue'
 import HeadlessUiCheckbox from './piying/headless-ui/dropdown.vue'
+import IonicInputText from './piying/ionic/input-text.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -78,6 +79,9 @@ export const fieldConfig = {
     },
     'headless-ui-dropdown': {
       type: HeadlessUiCheckbox,
+    },
+    'ionic-input-text': {
+      type: IonicInputText,
     },
   },
   wrappers: {
