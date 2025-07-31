@@ -9,6 +9,8 @@ import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { createVuetify } from 'vuetify';
 import '@mdi/font/css/materialdesignicons.css';
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
 
 const vuetify = createVuetify({
   components,
@@ -17,7 +19,11 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 app.use(vuetify);
-
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura
+    }
+});
 app.use(createPinia())
 app.use(router)
 

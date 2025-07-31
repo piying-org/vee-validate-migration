@@ -14,6 +14,9 @@ import CurrencyInput from './piying/currency-input.vue'
 import MultiCheckbox from './piying/multi-checkbox.vue'
 import VuetifyTextField from './piying/vuetify/text-field.vue'
 import VuetifyCheckbox from './piying/vuetify/checkbox.vue'
+import PrimeVueInputText from './piying/prime-vue/input-text.vue'
+import PrimeVueCheckbox from './piying/prime-vue/checkbox.vue'
+import PrimeVueDropdown from './piying/prime-vue/dropdown.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -33,6 +36,15 @@ export const fieldConfig = {
     },
     'vuetify-checkbox': {
       type: VuetifyCheckbox,
+    },
+    'prime-vue-input-text': {
+      type: PrimeVueInputText,
+    },
+    'prime-vue-checkbox': {
+      type: PrimeVueCheckbox,
+    },
+    'prime-vue-dropdown': {
+      type: PrimeVueDropdown,
     },
   },
   wrappers: {

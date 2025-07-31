@@ -6,13 +6,9 @@ import { effect, inject, vModelDynamic, watch, watchEffect } from 'vue'
 import { fi } from 'vuetify/locale'
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
-watch(
-  value,
-  (value) => {
-    valueChange?.(value)
-  },
-  {},
-)
+watch(value, (value) => {
+  valueChange?.(value)
+})
 const field = inject(PI_VIEW_FIELD_TOKEN)!
 let message = () => {
   return field.value.form.control!.valid

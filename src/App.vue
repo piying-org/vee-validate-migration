@@ -11,6 +11,7 @@ import HigherOrderComponents from './views/Higher-Order-Components.vue'
 import Stores from './views/Stores.vue'
 import CurrencyFormatExample from './views/Currency-Format-Example.vue'
 import Vuetify from "./views/Vuetify.vue";
+import PrimeVue from "./views/PrimeVue.vue";
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
 const browserLanguage = navigator.language
@@ -54,6 +55,10 @@ if (browserLanguage.startsWith('zh')) {
     >Vuetify
   </a>
   <Vuetify></Vuetify>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/"
+    >PrimeVue
+  </a>
+  <PrimeVue></PrimeVue>
 </template>
 
 <style scoped></style>
