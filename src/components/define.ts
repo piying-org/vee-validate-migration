@@ -12,31 +12,11 @@ import InputSwap from './piying/input-swap.vue'
 import Step from './piying/group/step.vue'
 import CurrencyInput from './piying/currency-input.vue'
 import MultiCheckbox from './piying/multi-checkbox.vue'
-import VuetifyTextField from './piying/vuetify/text-field.vue'
-import VuetifyCheckbox from './piying/vuetify/checkbox.vue'
-import PrimeVueInputText from './piying/prime-vue/input-text.vue'
-import PrimeVueCheckbox from './piying/prime-vue/checkbox.vue'
-import PrimeVueDropdown from './piying/prime-vue/dropdown.vue'
-import QuasarInputText from './piying/quasar/input-text.vue'
-import QuasarDropdown from './piying/quasar/dropdown.vue'
-import QuasarCheckbox from './piying/quasar/checkbox.vue'
-import QuasarForm from './piying/quasar/group/form.vue'
-import ElementPlusInputText from './piying/element-plus/input-text.vue'
-import ElementPlusDropdown from './piying/element-plus/dropdown.vue'
-import ElementPlusCheckbox from './piying/element-plus/checkbox.vue'
-import HeadlessUiCheckbox from './piying/headless-ui/dropdown.vue'
-import IonicInputText from './piying/ionic/input-text.vue'
-import AntCheckbox from './piying/ant-design/checkbox.vue'
-import AntDropDown from './piying/ant-design/dropdown.vue'
-import AntInputText from './piying/ant-design/input-text.vue'
+
 import AntFormItem from './piying/ant-design/wrapper/form-item.vue'
-import NaiveUiCheckbox from './piying/naive-ui/checkbox.vue'
-import NaiveUiDropdown from './piying/naive-ui/dropdown.vue'
-import NaiveUiInputText from './piying/naive-ui/input-text.vue'
+
 import NaiveUiFormItem from './piying/naive-ui/wrapper/form-item.vue'
-import BootstrapCheckbox from './piying/bootstrap/checkbox.vue'
-import BootstrapDropdown from './piying/bootstrap/dropdown.vue'
-import BootstrapInputText from './piying/bootstrap/input-text.vue'
+
 import BootstrapFormItem from './piying/bootstrap/wrapper/form-item.vue'
 export const fieldConfig = {
   types: {
@@ -53,74 +33,74 @@ export const fieldConfig = {
     'multi-checkbox': { type: MultiCheckbox },
     step: { type: Step },
     'vuetify-text-field': {
-      type: VuetifyTextField,
+      type: () => import('./piying/vuetify/text-field.vue').then((a) => a.default),
     },
     'vuetify-checkbox': {
-      type: VuetifyCheckbox,
+      type: () => import('./piying/vuetify/checkbox.vue').then((a) => a.default),
     },
     'prime-vue-input-text': {
-      type: PrimeVueInputText,
+      type: () => import('./piying/prime-vue/input-text.vue').then((a) => a.default),
     },
     'prime-vue-checkbox': {
-      type: PrimeVueCheckbox,
+      type: () => import('./piying/prime-vue/checkbox.vue').then((a) => a.default),
     },
     'prime-vue-dropdown': {
-      type: PrimeVueDropdown,
+      type: () => import('./piying/prime-vue/dropdown.vue').then((a) => a.default),
     },
     'quasar-input-text': {
-      type: QuasarInputText,
+      type: () => import('./piying/quasar/input-text.vue').then((a) => a.default),
     },
     'quasar-checkbox': {
-      type: QuasarCheckbox,
+      type: () => import('./piying/quasar/checkbox.vue').then((a) => a.default),
     },
     'quasar-dropdown': {
-      type: QuasarDropdown,
+      type: () => import('./piying/quasar/dropdown.vue').then((a) => a.default),
     },
     'quasar-form': {
-      type: QuasarForm,
+      type: () => import('./piying/quasar/group/form.vue').then((a) => a.default),
     },
 
     'element-plus-input-text': {
-      type: ElementPlusInputText,
+      type: () => import('./piying/element-plus/input-text.vue').then((a) => a.default),
     },
     'element-plus-checkbox': {
-      type: ElementPlusCheckbox,
+      type: () => import('./piying/element-plus/checkbox.vue').then((a) => a.default),
     },
     'element-plus-dropdown': {
-      type: ElementPlusDropdown,
+      type: () => import('./piying/element-plus/dropdown.vue').then((a) => a.default),
     },
     'headless-ui-dropdown': {
-      type: HeadlessUiCheckbox,
+      type: () => import('./piying/headless-ui/dropdown.vue').then((a) => a.default),
     },
     'ionic-input-text': {
-      type: IonicInputText,
+      type: () => import('./piying/ionic/input-text.vue').then((a) => a.default),
     },
     'ant-input-text': {
-      type: AntInputText,
+      type: () => import('./piying/ant-design/input-text.vue').then((a) => a.default),
     },
     'ant-checkbox': {
-      type: AntCheckbox,
+      type: () => import('./piying/ant-design/checkbox.vue').then((a) => a.default),
     },
     'ant-dropdown': {
-      type: AntDropDown,
+      type: () => import('./piying/ant-design/dropdown.vue').then((a) => a.default),
     },
     'naive-ui-input-text': {
-      type: NaiveUiInputText,
+      type: () => import('./piying/naive-ui/input-text.vue').then((a) => a.default),
     },
     'naive-ui-checkbox': {
-      type: NaiveUiCheckbox,
+      type: () => import('./piying/naive-ui/checkbox.vue').then((a) => a.default),
     },
     'naive-ui-dropdown': {
-      type: NaiveUiDropdown,
+      type: () => import('./piying/naive-ui/dropdown.vue').then((a) => a.default),
     },
     'bootstrap-input-text': {
-      type: BootstrapInputText,
+      type: () => import('./piying/bootstrap/input-text.vue').then((a) => a.default),
     },
     'bootstrap-checkbox': {
-      type: BootstrapCheckbox,
+      type: () => import('./piying/bootstrap/checkbox.vue').then((a) => a.default),
     },
     'bootstrap-dropdown': {
-      type: BootstrapDropdown,
+      type: () => import('./piying/bootstrap/dropdown.vue').then((a) => a.default),
     },
   },
   wrappers: {
