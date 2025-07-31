@@ -2,16 +2,16 @@
 import { useControlValueAccessor } from '@piying/view-vue'
 import { computed, ref, vModelDynamic, watchEffect } from 'vue'
 import numbro from 'numbro'
-let dInputs = defineProps<{ options: any }>()
+const dInputs = defineProps<{ options: any }>()
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
-let displayValue = computed(() => {
+const displayValue = computed(() => {
   return `${dInputs.options.currency}${numbro(value.value).format({ thousandSeparated: true })}`
 })
-let inputValue = computed(() => {
+const inputValue = computed(() => {
   return `${value.value}`
 })
-let isBlur = ref(true)
+const isBlur = ref(true)
 function blurChange() {
   touchedChange()
   isBlur.value = true
@@ -20,7 +20,7 @@ function valueChange2(value: any) {
   return valueChange(+value)
 }
 function inputChange(event: KeyboardEvent) {
-  let currentValue = event.key
+  const currentValue = event.key
 
   if (currentValue.length == 1 && Number.isNaN(+currentValue)) {
     event.preventDefault()

@@ -4,11 +4,11 @@ import JSONFormatter from 'json-formatter-js'
 import { summarize } from 'valibot'
 import { computed, inject, ref, vModelDynamic } from 'vue'
 const field = inject(PI_VIEW_FIELD_TOKEN)!
-let control = signalToRef(() => field.value.form.root)
-let value = signalToRef(() => control.value.value$$())
-let formatedHtml = computed(() => new JSONFormatter(value.value).render().outerHTML)
-let errors$$ = signalToRef(() => control.value.errors)
-let errorStr$$ = computed(() => {
+const control = signalToRef(() => field.value.form.root)
+const value = signalToRef(() => control.value.value$$())
+const formatedHtml = computed(() => new JSONFormatter(value.value).render().outerHTML)
+const errors$$ = signalToRef(() => control.value.errors)
+const errorStr$$ = computed(() => {
   if (!errors$$.value) {
     return ''
   }
@@ -27,7 +27,7 @@ const isChangedStatus = signalToRef(() => control.value?.dirty$$() || control.va
 function submit() {
   alert(JSON.stringify(value.value, undefined, 4))
 }
-let initData = ref(undefined)
+const initData = ref(undefined)
 function resetForm() {
   control.value.reset(initData.value)
 }

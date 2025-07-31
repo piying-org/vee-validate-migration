@@ -30,7 +30,7 @@ const schema = v.pipe(
         formConfig({
           asyncValidators: [
             async (control) => {
-              let value = control.value
+              const value = control.value
               const result = await mockApiRequest(value)
               return result ? undefined : { email: 'This email is already taken' }
             },

@@ -7,7 +7,7 @@ defineExpose({ cva })
 
 const field = inject(PI_VIEW_FIELD_TOKEN)!
 
-let message = () => {
+const message = () => {
   return field.value.form.control!.valid
     ? true
     : summarize(field.value.form.control!.errors!['valibot'])

@@ -7,17 +7,17 @@ const dInputs = defineProps<{
   fields: PiResolvedViewFieldConfig[]
 }>()
 const field = inject(PI_VIEW_FIELD_TOKEN)!
-let list = signalToRef(() => field.value.fieldGroup!())
-let activatedIndex$ = ref(0)
-let activatedItem$$ = computed(() => list.value[activatedIndex$.value])
-let prevValid = signalToRef(() => {
-  let prevIndex = activatedIndex$.value - 1
+const list = signalToRef(() => field.value.fieldGroup!())
+const activatedIndex$ = ref(0)
+const activatedItem$$ = computed(() => list.value[activatedIndex$.value])
+const prevValid = signalToRef(() => {
+  const prevIndex = activatedIndex$.value - 1
   if (prevIndex === -1) {
     return false
   }
   return !!list.value[prevIndex].form.control?.rawError$$()
 })
-let currentValid = signalToRef(() => {
+const currentValid = signalToRef(() => {
   return !!activatedItem$$.value.form.control?.rawError$$()
 })
 

@@ -2,11 +2,11 @@
 import { useControlValueAccessor } from '@piying/view-vue'
 import { boolean } from 'valibot'
 import { computed, ref, shallowRef, vModelDynamic } from 'vue'
-let dInputs = defineProps<{ options: { label: string; value: string }[] }>()
+const dInputs = defineProps<{ options: { label: string; value: string }[] }>()
 const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
 defineExpose({ cva })
 
-let selectedList = shallowRef(
+const selectedList = shallowRef(
   dInputs.options.map((option) => {
     return value.value?.includes(option.value)
   }),

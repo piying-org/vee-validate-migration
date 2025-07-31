@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PI_VIEW_FIELD_TOKEN, signalToRef, useControlValueAccessor } from '@piying/view-vue'
-import { computed } from '@vue/reactivity'
+import { computed } from 'vue'
 import { summarize } from 'valibot'
 import { effect, inject, vModelDynamic, watch, watchEffect } from 'vue'
 import { fi } from 'vuetify/locale'
@@ -9,7 +9,7 @@ const { cva, value, disabled, valueChange, touchedChange } = useControlValueAcce
 defineExpose({ cva })
 
 const field = inject(PI_VIEW_FIELD_TOKEN)!
-let message = () => {
+const message = () => {
   return field.value.form.control!.valid ? true : errorString(field.value)
 }
 

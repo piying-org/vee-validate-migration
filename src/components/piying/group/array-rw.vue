@@ -16,11 +16,11 @@ function remove(index: number) {
 function add() {
   field.value.action.set(undefined)
 }
-let list = signalToRef(() => field.value.fieldArray!())
-let btnDisabled = computed(() => list.value.length <= dInputs.minLength)
+const list = signalToRef(() => field.value.fieldArray!())
+const btnDisabled = computed(() => list.value.length <= dInputs.minLength)
 
 watchEffect(() => {
-  let minLength = dInputs.minLength ?? 0
+  const minLength = dInputs.minLength ?? 0
   for (let i = (field.value.fieldArray!() || []).length; i < minLength; i++) {
     field.value.action.set(dInputs.initItem?.(i), i)
   }

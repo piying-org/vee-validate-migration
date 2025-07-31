@@ -31,7 +31,7 @@ const schema = v.pipe(
       formConfig({
         validators: [
           (control) => {
-            let result = control.parent?.get('password')
+            const result = control.parent?.get('password')
             return result?.value !== control.value ? { pwd: 'Passwords do not match' } : undefined
           },
         ],

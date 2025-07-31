@@ -8,7 +8,7 @@ const field = inject(PI_VIEW_FIELD_TOKEN)!
 
 const props = signalToRef(() => field.value.props())
 
-let status$$ = signalToRef(() => {
+const status$$ = signalToRef(() => {
   if (field.value.form.control!.valid) {
     return 'success'
   } else if (!field.value.form.control?.dirty$$() && !field.value.form.control?.touched$$()) {
@@ -17,15 +17,15 @@ let status$$ = signalToRef(() => {
     return 'error'
   }
 })
-let message = signalToRef(() => {
-  let status = status$$.value
+const message = signalToRef(() => {
+  const status = status$$.value
   return status === 'error' ? errorString(field.value) : ''
 })
 
-let disabledLabel = computed(() => {
+const disabledLabel = computed(() => {
   return props.value['disabledLabel']
 })
-let state = signalToRef(() => {
+const state = signalToRef(() => {
   return field.value.form.control!.valid
 })
 </script>

@@ -3,7 +3,7 @@ import { PI_VIEW_FIELD_TOKEN, signalToRef } from '@piying/view-vue'
 import { inject } from 'vue'
 const field = inject(PI_VIEW_FIELD_TOKEN)!
 const props = signalToRef(() => field.value.props())
-let isRequired = signalToRef(() => !!field.value.form.control?.required$$())
+const isRequired = signalToRef(() => !!field.value.form.control?.required$$())
 </script>
 <template>
   <div

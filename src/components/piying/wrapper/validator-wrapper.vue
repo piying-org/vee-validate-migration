@@ -25,7 +25,7 @@ const isChangedStatus = signalToRef(
   () => field.value.form.control?.dirty$$() || field.value.form.control?.touched$$(),
 )
 const forceShowError = signalToRef(() => field.value.props()['forceShowError'])
-let successMessage = signalToRef(() => field.value.props()['successMessage'])
+const successMessage = signalToRef(() => field.value.props()['successMessage'])
 </script>
 <template>
   <div :class="statusClass">
