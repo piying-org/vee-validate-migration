@@ -13,7 +13,7 @@ import {
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
-import { CustomNgBuilder } from '@/components/piying/custom.builder'
+import { CustomBuilder } from '@/components/piying/custom.builder'
 const schema = v.pipe(
   v.object({
     name: v.pipe(
@@ -72,7 +72,7 @@ const schema = v.pipe(
 )
 const options = {
   fieldGlobalConfig: fieldConfig,
-  builder: CustomNgBuilder,
+  builder: CustomBuilder,
 }
 function modelChange(event: any) {
   console.log(event)

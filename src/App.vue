@@ -10,6 +10,7 @@ import CustomCheckboxes from './views/Custom-Checkboxes.vue'
 import HigherOrderComponents from './views/Higher-Order-Components.vue'
 import Stores from './views/Stores.vue'
 import CurrencyFormatExample from './views/Currency-Format-Example.vue'
+import Vuetify from "./views/Vuetify.vue";
 import '@valibot/i18n/zh-CN'
 import { setGlobalConfig } from 'valibot'
 const browserLanguage = navigator.language
@@ -49,6 +50,10 @@ if (browserLanguage.startsWith('zh')) {
     >Currency Format Example
   </a>
   <CurrencyFormatExample></CurrencyFormatExample>
+  <a href="https://vee-validate.logaretm.com/v4/examples/ui-libraries/"
+    >Vuetify
+  </a>
+  <Vuetify></Vuetify>
 </template>
 
 <style scoped></style>

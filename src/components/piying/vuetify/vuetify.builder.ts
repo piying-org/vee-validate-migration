@@ -6,32 +6,20 @@ function getSignalValue(inputs: any) {
   return isSignal(inputs) ? inputs() : inputs
 }
 
-export class CustomBuilder extends VueFormBuilder {
+export class VueTifyBuilder extends VueFormBuilder {
   override afterResolveConfig(rawConfig: VueSchemaHandle, config: PiResolvedViewFieldConfig) {
     const parsed = super.afterResolveConfig(rawConfig, config) ?? config
     const props = parsed?.props
     const inputs = parsed?.inputs
-    const options$$ = computed(
-      () => {
-        const value = getSignalValue(props)
-        return value?.['options']
-      },
-      { equal: deepEqual },
-    )
+
     const inputs$$ = linkedSignal(() => {
       let value = getSignalValue(inputs)
-      if (rawConfig.type === 'picklist' || rawConfig.type === 'radio') {
-        const options = options$$()
-        if (options && !value.options) {
-          value = { ...value, options }
-        }
-      }
-      return value
+      const label = getSignalValue(props)['title']
+      return { ...value, label }
     })
 
     return {
       ...parsed,
-      props: props,
       inputs: inputs$$,
     } as any
   }

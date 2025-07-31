@@ -12,6 +12,8 @@ import InputSwap from './piying/input-swap.vue'
 import Step from './piying/group/step.vue'
 import CurrencyInput from './piying/currency-input.vue'
 import MultiCheckbox from './piying/multi-checkbox.vue'
+import VuetifyTextField from './piying/vuetify/text-field.vue'
+import VuetifyCheckbox from './piying/vuetify/checkbox.vue'
 export const fieldConfig = {
   types: {
     string: { type: InputText, wrappers: ['label'] },
@@ -26,6 +28,12 @@ export const fieldConfig = {
     'custom-checkbox': { type: InputSwap },
     'multi-checkbox': { type: MultiCheckbox },
     step: { type: Step },
+    'vuetify-text-field': {
+      type: VuetifyTextField,
+    },
+    'vuetify-checkbox': {
+      type: VuetifyCheckbox,
+    },
   },
   wrappers: {
     label: {
