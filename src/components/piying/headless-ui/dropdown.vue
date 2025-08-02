@@ -11,7 +11,7 @@ import {
 import { Listbox, ListboxOptions, ListboxOption, ListboxButton } from '@headlessui/vue'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
 
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 const props = withDefaults(defineProps<{ options?: any[]; optionConvert?: OptionConvert }>(), {
   options: () => [],

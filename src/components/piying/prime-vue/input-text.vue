@@ -3,7 +3,7 @@ import { useControlValueAccessor } from '@piying/view-vue'
 import { vModelDynamic, watch } from 'vue'
 import InputText from 'primevue/inputtext'
 
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 
 </script>

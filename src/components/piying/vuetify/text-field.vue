@@ -5,7 +5,7 @@ import { summarize } from 'valibot'
 import { effect, inject, vModelDynamic, watch, watchEffect } from 'vue'
 import { fi } from 'vuetify/locale'
 import { errorString } from '../util/error-string'
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 
 const field = inject(PI_VIEW_FIELD_TOKEN)!

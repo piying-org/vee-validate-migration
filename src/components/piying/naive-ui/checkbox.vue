@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
 import { NCheckbox } from 'naive-ui'
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 </script>
 <template>

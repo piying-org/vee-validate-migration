@@ -9,7 +9,7 @@ import {
   type OptionConvert,
 } from '../util/options'
 import { ElSelect, ElOption } from 'element-plus'
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 const props = withDefaults(defineProps<{ options?: any[]; optionConvert?: OptionConvert }>(), {
   options: () => [],

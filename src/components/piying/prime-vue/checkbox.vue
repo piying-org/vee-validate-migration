@@ -3,7 +3,7 @@ import { useControlValueAccessor } from '@piying/view-vue'
 import { vModelDynamic, watch } from 'vue'
 import Checkbox from 'primevue/checkbox'
 
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 watch(value, (value) => {
   valueChange?.(value)

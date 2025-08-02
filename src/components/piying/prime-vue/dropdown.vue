@@ -10,7 +10,7 @@ import {
 } from '../util/options'
 import Dropdown from 'primevue/dropdown'
 
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 const props = withDefaults(defineProps<{ options?: any[]; optionConvert?: OptionConvert }>(), {
   options: () => [],

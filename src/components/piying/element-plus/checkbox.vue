@@ -2,7 +2,7 @@
 import { useControlValueAccessor } from '@piying/view-vue'
 import { vModelDynamic, watch } from 'vue'
 import { ElCheckbox } from 'element-plus'
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 
 

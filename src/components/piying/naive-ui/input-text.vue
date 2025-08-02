@@ -2,7 +2,7 @@
 import { useControlValueAccessor } from '@piying/view-vue'
 import { vModelDynamic, watch } from 'vue'
 import { NInput } from "naive-ui";
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 
 </script>

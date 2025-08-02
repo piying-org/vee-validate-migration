@@ -3,7 +3,7 @@ import { useControlValueAccessor } from '@piying/view-vue'
 import { computed, ref, vModelDynamic, watchEffect } from 'vue'
 import numbro from 'numbro'
 const dInputs = defineProps<{ options: any }>()
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 const displayValue = computed(() => {
   return `${dInputs.options.currency}${numbro(value.value).format({ thousandSeparated: true })}`

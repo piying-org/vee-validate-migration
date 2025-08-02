@@ -3,7 +3,7 @@ import { useControlValueAccessor } from '@piying/view-vue'
 import { boolean } from 'valibot'
 import { computed, ref, shallowRef, vModelDynamic } from 'vue'
 const dInputs = defineProps<{ options: { label: string; value: string }[] }>()
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 
 const selectedList = shallowRef(

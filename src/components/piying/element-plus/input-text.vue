@@ -4,7 +4,7 @@ import { inject, vModelDynamic, watch } from 'vue'
 import { summarize } from 'valibot'
 import { ElInput } from 'element-plus'
 import { errorString } from '../util/error-string'
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 
 const field = inject(PI_VIEW_FIELD_TOKEN)!

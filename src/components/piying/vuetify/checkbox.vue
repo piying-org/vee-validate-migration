@@ -2,7 +2,7 @@
 import { PI_VIEW_FIELD_TOKEN, useControlValueAccessor } from '@piying/view-vue'
 import { summarize } from 'valibot'
 import { inject, vModelDynamic, watch, watchEffect } from 'vue'
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 
 const field = inject(PI_VIEW_FIELD_TOKEN)!

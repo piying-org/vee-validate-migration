@@ -4,7 +4,7 @@ import { vModelDynamic } from 'vue'
 defineProps<{
   checkedValue: string
 }>()
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 </script>
 <template>
