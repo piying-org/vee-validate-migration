@@ -3,9 +3,6 @@ import { PiyingView } from '@piying/view-vue'
 import {
   formConfig,
   NFCSchema,
-  patchInputs,
-  patchProps,
-  patchWrappers,
   setComponent,
   setWrappers,
 } from '@piying/view-core'

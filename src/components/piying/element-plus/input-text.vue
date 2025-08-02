@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { PI_VIEW_FIELD_TOKEN, useControlValueAccessor } from '@piying/view-vue'
-import { inject, vModelDynamic, watch } from 'vue'
-import { summarize } from 'valibot'
+import { inject } from 'vue'
 import { ElInput } from 'element-plus'
-import { errorString } from '../util/error-string'
 const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })
 

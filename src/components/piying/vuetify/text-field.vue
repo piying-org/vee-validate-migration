@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { PI_VIEW_FIELD_TOKEN, signalToRef, useControlValueAccessor } from '@piying/view-vue'
-import { computed } from 'vue'
-import { summarize } from 'valibot'
-import { effect, inject, vModelDynamic, watch, watchEffect } from 'vue'
-import { fi } from 'vuetify/locale'
+import { PI_VIEW_FIELD_TOKEN, useControlValueAccessor } from '@piying/view-vue'
+import { inject } from 'vue'
 import { errorString } from '../util/error-string'
 const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })

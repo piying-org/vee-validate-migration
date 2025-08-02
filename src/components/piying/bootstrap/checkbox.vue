@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
-import { vModelDynamic, watch } from 'vue'
 import { BFormCheckbox } from 'bootstrap-vue-next'
 
 const {

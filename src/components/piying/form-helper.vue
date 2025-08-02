@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { PI_VIEW_FIELD_TOKEN, signalToRef, useControlValueAccessor } from '@piying/view-vue'
+import { PI_VIEW_FIELD_TOKEN, signalToRef } from '@piying/view-vue'
 import JSONFormatter from 'json-formatter-js'
 import { summarize } from 'valibot'
-import { computed, inject, ref, vModelDynamic } from 'vue'
+import { computed, inject, ref } from 'vue'
 const field = inject(PI_VIEW_FIELD_TOKEN)!
 const control = signalToRef(() => field.value.form.root)
 const value = signalToRef(() => control.value.value$$())

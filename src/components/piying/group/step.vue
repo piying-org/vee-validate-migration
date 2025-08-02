@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PiResolvedViewFieldConfig } from '@piying/view-vue'
 import { PI_VIEW_FIELD_TOKEN, PiyingFieldTemplate, signalToRef } from '@piying/view-vue'
-import { computed, inject, ref, watchEffect } from 'vue'
+import { computed, inject, ref } from 'vue'
 
 const dInputs = defineProps<{
   fields: PiResolvedViewFieldConfig[]

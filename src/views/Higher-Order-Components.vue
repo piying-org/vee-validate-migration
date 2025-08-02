@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
 import {
-  asVirtualGroup,
   formConfig,
-  NFCSchema,
-  patchAsyncProps,
-  patchAttributes,
   patchInputs,
   patchProps,
-  patchWrappers,
   setComponent,
   setWrappers,
 } from '@piying/view-core'
@@ -16,7 +11,6 @@ import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
 import { CustomBuilder } from '@/components/piying/custom.builder'
-import { map } from 'rxjs'
 const schema = v.pipe(
   v.intersect([
     v.pipe(

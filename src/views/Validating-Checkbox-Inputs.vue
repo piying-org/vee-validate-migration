@@ -5,7 +5,6 @@ import {
   NFCSchema,
   patchInputs,
   patchProps,
-  patchWrappers,
   setComponent,
   setWrappers,
 } from '@piying/view-core'

@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
 import {
-  formConfig,
   NFCSchema,
   patchAsyncProps,
-  patchAttributes,
   patchInputs,
   patchProps,
-  patchWrappers,
   setComponent,
   setWrappers,
 } from '@piying/view-core'

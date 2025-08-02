@@ -2,15 +2,8 @@
 import { PiyingView } from '@piying/view-vue'
 import {
   componentClass,
-  formConfig,
   NFCSchema,
-  patchAsyncProps,
-  patchAttributes,
-  patchInputs,
-  patchProps,
-  patchWrappers,
   setComponent,
-  setWrappers,
   topClass,
 } from '@piying/view-core'
 import * as v from 'valibot'

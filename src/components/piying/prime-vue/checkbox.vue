@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
-import { vModelDynamic, watch } from 'vue'
+import { watch } from 'vue'
 import Checkbox from 'primevue/checkbox'
 
 const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()

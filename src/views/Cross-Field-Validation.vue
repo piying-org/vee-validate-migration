@@ -4,9 +4,6 @@ import {
   formConfig,
   NFCSchema,
   patchAttributes,
-  patchInputs,
-  patchProps,
-  patchWrappers,
   setComponent,
   setWrappers,
 } from '@piying/view-core'

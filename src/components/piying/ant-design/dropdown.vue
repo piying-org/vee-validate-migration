@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
-import { computed, watch } from 'vue'
-import { vModelDynamic } from 'vue'
+import { computed } from 'vue'
 import {
   DefaultOptionConvert,
-  getRadioIndex,
   transformOptions,
   type OptionConvert,
 } from '../util/options'

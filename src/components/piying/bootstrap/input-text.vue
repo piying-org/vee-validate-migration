@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
-import { vModelDynamic, watch } from 'vue'
 import { BFormInput } from 'bootstrap-vue-next'
 const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
 defineExpose({ cva })

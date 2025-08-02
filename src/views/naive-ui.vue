@@ -3,11 +3,8 @@ import { PiyingView } from '@piying/view-vue'
 import {
   formConfig,
   NFCSchema,
-  patchAsyncProps,
-  patchAttributes,
   patchInputs,
   patchProps,
-  patchWrappers,
   setComponent,
   setWrappers,
 } from '@piying/view-core'
@@ -15,7 +12,6 @@ import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
 import { CustomBuilder } from '@/components/piying/custom.builder'
-import { VueTifyBuilder } from '@/components/piying/vuetify/vuetify.builder'
 const options1 = ['Enterprise', 'Pro', 'Freelance'].map((o) => ({
   label: o,
   value: o,

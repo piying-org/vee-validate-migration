@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PI_VIEW_FIELD_TOKEN, useControlValueAccessor } from '@piying/view-vue'
-import { inject, vModelDynamic, watch } from 'vue'
+import { inject } from 'vue'
 
 import { IonInput } from '@ionic/vue'
 const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()

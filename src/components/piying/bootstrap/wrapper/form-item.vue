@@ -2,7 +2,7 @@
 import { PI_VIEW_FIELD_TOKEN, signalToRef } from '@piying/view-vue'
 import { BFormGroup } from 'bootstrap-vue-next'
 
-import { computed, inject, watchEffect } from 'vue'
+import { computed, inject } from 'vue'
 import { errorString } from '../../util/error-string'
 const field = inject(PI_VIEW_FIELD_TOKEN)!
 

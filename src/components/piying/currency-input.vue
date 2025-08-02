@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useControlValueAccessor } from '@piying/view-vue'
-import { computed, ref, vModelDynamic, watchEffect } from 'vue'
+import { computed, ref, vModelDynamic } from 'vue'
 import numbro from 'numbro'
 const dInputs = defineProps<{ options: any }>()
 const { cva, cvaa: { value, disabled, valueChange, touchedChange } } = useControlValueAccessor()
