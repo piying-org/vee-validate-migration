@@ -3,19 +3,17 @@ import type { PiResolvedViewFieldConfig } from '@piying/view-vue'
 import { PI_VIEW_FIELD_TOKEN, PiyingFieldTemplate, signalToRef } from '@piying/view-vue'
 import { computed, inject, ref } from 'vue'
 
-const dInputs = defineProps<{
-  fields: PiResolvedViewFieldConfig[]
-}>()
+const dInputs = defineProps<{}>()
 const field = inject(PI_VIEW_FIELD_TOKEN)!
-const list = signalToRef(() => field.value.fieldGroup!())
+const children = signalToRef(() => field.value.children!());
 const activatedIndex$ = ref(0)
-const activatedItem$$ = computed(() => list.value[activatedIndex$.value])
+const activatedItem$$ = computed(() => children.value[activatedIndex$.value])
 const prevValid = signalToRef(() => {
   const prevIndex = activatedIndex$.value - 1
   if (prevIndex === -1) {
     return false
   }
-  return !!list.value[prevIndex].form.control?.rawError$$()
+  return !!children.value[prevIndex].form.control?.rawError$$()
 })
 const currentValid = signalToRef(() => {
   return !!activatedItem$$.value.form.control?.rawError$$()
@@ -30,7 +28,7 @@ function toNext() {
 </script>
 <template>
   <ul class="steps">
-    <template v-for="(field, index) in list">
+    <template v-for="(field, index) in children">
       <li class="step" :class="{ 'step-primary': activatedIndex$ >= index }">
         {{ field.props()['title'] }}
       </li>
@@ -48,7 +46,7 @@ function toNext() {
         Previous
       </button>
       <button
-        v-if="activatedIndex$ + 1 !== list.length"
+        v-if="activatedIndex$ + 1 !== children.length"
         class="btn btn-primary"
         :disabled="currentValid"
         @click="toNext()"

@@ -4,7 +4,6 @@ import { PI_VIEW_FIELD_TOKEN, PiyingFieldTemplate, signalToRef } from '@piying/v
 import { computed, inject, watchEffect } from 'vue'
 
 const dInputs = defineProps<{
-  fields: PiResolvedViewFieldConfig[]
   minLength: number
   initItem?: (index: number | undefined) => any
 }>()
@@ -16,12 +15,12 @@ function remove(index: number) {
 function add() {
   field.value.action.set(undefined)
 }
-const list = signalToRef(() => field.value.fieldArray!())
-const btnDisabled = computed(() => list.value.length <= dInputs.minLength)
+const children = signalToRef(() => field.value.children!())
+const btnDisabled = computed(() => children.value.length <= dInputs.minLength)
 
 watchEffect(() => {
   const minLength = dInputs.minLength ?? 0
-  for (let i = (field.value.fieldArray!() || []).length; i < minLength; i++) {
+  for (let i = children.value.length; i < minLength; i++) {
     field.value.action.set(dInputs.initItem?.(i), i)
   }
 })
@@ -29,7 +28,7 @@ watchEffect(() => {
 <template>
   <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full">
     <legend class="fieldset-legend" v-if="props['title']">{{ props['title'] }}</legend>
-    <template v-for="(field, index) in list" :key="index">
+    <template v-for="(field, index) in children" :key="index">
       <div class="flex items-center gap-2 *:first:flex-1">
         <piying-field-template :field="field!"></piying-field-template>
         <button
