@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  componentClass,
-  NFCSchema,
-  setComponent,
-  topClass,
-} from '@piying/view-core'
+import { NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -16,17 +11,17 @@ const schema = v.pipe(
     options1: v.pipe(
       v.picklist(options1),
       setComponent('headless-ui-dropdown'),
-      topClass('grid-span-1'),
+      actions.class.top('grid-span-1'),
     ),
     options2: v.pipe(
       v.picklist(options1),
       setComponent('headless-ui-dropdown'),
-      topClass('grid-span-1'),
+      actions.class.top('grid-span-1'),
     ),
     __formHelper: v.pipe(NFCSchema, setComponent('formHelper')),
   }),
   setComponent('fieldset'),
-  componentClass('grid grid-cols-2'),
+  actions.class.component('grid grid-cols-2'),
 )
 const options = {
   fieldGlobalConfig: fieldConfig,

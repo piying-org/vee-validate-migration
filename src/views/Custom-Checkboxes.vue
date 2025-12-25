@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  NFCSchema,
-  patchAsyncProps,
-  patchInputs,
-  patchProps,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -21,12 +14,12 @@ const schema = v.pipe(
           v.pipe(
             v.boolean(),
             setComponent('custom-checkbox'),
-            patchInputs({ checkedValue: value }),
-            setWrappers(['label']),
-            patchProps({
+            actions.inputs.patch({ checkedValue: value }),
+            actions.wrappers.set(['label']),
+            actions.props.patch({
               titlePosition: 'right',
             }),
-            patchAsyncProps({
+            actions.props.patchAsync({
               title: (field) => {
                 return field.form.control!.valueChanges.pipe(
                   map((item) => (item ? 'checked' : 'unchecked')),

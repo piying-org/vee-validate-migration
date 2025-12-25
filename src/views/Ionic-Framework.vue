@@ -3,7 +3,7 @@ import { PiyingView } from '@piying/view-vue'
 import {
   formConfig,
   NFCSchema,
-  patchInputs,
+  actions,
   setComponent,
 } from '@piying/view-core'
 import * as v from 'valibot'
@@ -18,20 +18,20 @@ const schema = v.pipe(
       v.email(),
       v.title('Email'),
       setComponent('ionic-input-text'),
-      patchInputs({ type: 'email' }),
+      actions.inputs.patch({ type: 'email' }),
     ),
     password: v.pipe(
       v.string(),
       v.minLength(6),
       v.title('Password'),
       setComponent('ionic-input-text'),
-      patchInputs({ type: 'password' }),
+      actions.inputs.patch({ type: 'password' }),
     ),
     passwordConfirm: v.pipe(
       v.string(),
       v.title('Password Confirmation'),
       setComponent('ionic-input-text'),
-      patchInputs({ type: 'password' }),
+      actions.inputs.patch({ type: 'password' }),
       formConfig({
         validators: [
           (control) => {

@@ -1,14 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  formConfig,
-  NFCSchema,
-  patchAttributes,
-  patchInputs,
-  patchProps,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { formConfig, NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -17,35 +9,35 @@ const schema = v.pipe(
   v.object({
     name: v.pipe(
       v.string(),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
       v.title('Full Name'),
-      patchAttributes({ placeholder: 'Your Name' }),
-      patchProps({ successMessage: 'Nice to meet you!', titlePosition: 'top' }),
+      actions.attributes.patch({ placeholder: 'Your Name' }),
+      actions.props.patch({ successMessage: 'Nice to meet you!', titlePosition: 'top' }),
     ),
     email: v.pipe(
       v.string(),
       v.email(),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
       v.title('E-mail'),
-      patchAttributes({ placeholder: 'Your email address' }),
-      patchProps({ successMessage: `Got it, we won't spam you!`, titlePosition: 'top' }),
+      actions.attributes.patch({ placeholder: 'Your email address' }),
+      actions.props.patch({ successMessage: `Got it, we won't spam you!`, titlePosition: 'top' }),
     ),
     password: v.pipe(
       v.string(),
       v.minLength(6),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
       v.title('Password'),
-      patchInputs({ type: 'password' }),
-      patchAttributes({ placeholder: 'Your password' }),
-      patchProps({ successMessage: `Nice and secure!`, titlePosition: 'top' }),
+      actions.inputs.patch({ type: 'password' }),
+      actions.attributes.patch({ placeholder: 'Your password' }),
+      actions.props.patch({ successMessage: `Nice and secure!`, titlePosition: 'top' }),
     ),
     confirm_password: v.pipe(
       v.string(),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
       v.title('Confirm Password'),
-      patchInputs({ type: 'password' }),
-      patchAttributes({ placeholder: 'Type it again' }),
-      patchProps({ successMessage: `Glad you remembered it!`, titlePosition: 'top' }),
+      actions.inputs.patch({ type: 'password' }),
+      actions.attributes.patch({ placeholder: 'Type it again' }),
+      actions.props.patch({ successMessage: `Glad you remembered it!`, titlePosition: 'top' }),
       formConfig({
         validators: [
           (control) => {

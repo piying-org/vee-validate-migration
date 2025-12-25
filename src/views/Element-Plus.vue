@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  formConfig,
-  NFCSchema,
-  patchInputs,
-  patchProps,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { formConfig, NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -23,9 +16,9 @@ const schema = v.pipe(
       v.email(),
       v.title('Email'),
       setComponent('element-plus-input-text'),
-      setWrappers(['label', 'validator']),
-      patchInputs({ type: 'email', placeholder: 'Email Address' }),
-      patchProps({
+      actions.wrappers.set(['label', 'validator']),
+      actions.inputs.patch({ type: 'email', placeholder: 'Email Address' }),
+      actions.props.patch({
         titlePosition: 'left',
       }),
     ),
@@ -33,12 +26,12 @@ const schema = v.pipe(
       v.string(),
       v.title('Full name'),
       setComponent('element-plus-input-text'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchInputs({
+      actions.inputs.patch({
         placeholder: 'Full name',
       }),
-      patchProps({
+      actions.props.patch({
         titlePosition: 'left',
       }),
     ),
@@ -48,10 +41,10 @@ const schema = v.pipe(
       v.minLength(6),
       v.title('Password'),
       setComponent('element-plus-input-text'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchInputs({ type: 'password', placeholder: 'Password' }),
-      patchProps({
+      actions.inputs.patch({ type: 'password', placeholder: 'Password' }),
+      actions.props.patch({
         titlePosition: 'left',
       }),
     ),
@@ -59,10 +52,10 @@ const schema = v.pipe(
       v.string(),
       v.title('Password Confirmation'),
       setComponent('element-plus-input-text'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchInputs({ type: 'password', placeholder: 'Confirm password' }),
-      patchProps({
+      actions.inputs.patch({ type: 'password', placeholder: 'Confirm password' }),
+      actions.props.patch({
         titlePosition: 'left',
       }),
       formConfig({
@@ -78,13 +71,13 @@ const schema = v.pipe(
       v.picklist(options1.map((item) => item.value)),
       v.title('Type'),
       setComponent('element-plus-dropdown'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchInputs({
+      actions.inputs.patch({
         options: options1,
         placeholder: 'Select',
       }),
-      patchProps({
+      actions.props.patch({
         titlePosition: 'left',
       }),
     ),
@@ -92,12 +85,12 @@ const schema = v.pipe(
       v.boolean(),
       v.title('Agree to terms and conditions'),
       setComponent('element-plus-checkbox'),
-      setWrappers(['validator', 'label']),
+      actions.wrappers.set(['validator', 'label']),
 
       v.check((value) => {
         return value
       }, `I've read and accept the terms & conditions.`),
-      patchProps({
+      actions.props.patch({
         titlePosition: 'right',
       }),
     ),

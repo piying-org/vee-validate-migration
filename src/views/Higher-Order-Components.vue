@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  formConfig,
-  patchInputs,
-  patchProps,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { formConfig, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -15,8 +9,13 @@ const schema = v.pipe(
   v.intersect([
     v.pipe(
       v.object({
-        name: v.pipe(v.string(), v.title('Name'), setWrappers(['label', 'validator'])),
-        email: v.pipe(v.string(), v.email(), v.title('Email'), setWrappers(['label', 'validator'])),
+        name: v.pipe(v.string(), v.title('Name'), actions.wrappers.set(['label', 'validator'])),
+        email: v.pipe(
+          v.string(),
+          v.email(),
+          v.title('Email'),
+          actions.wrappers.set(['label', 'validator']),
+        ),
       }),
       setComponent('fieldset'),
     ),
@@ -25,16 +24,16 @@ const schema = v.pipe(
         password: v.pipe(
           v.string(),
           v.minLength(6),
-          setWrappers(['label', 'validator']),
+          actions.wrappers.set(['label', 'validator']),
           v.title('Password'),
-          patchInputs({ type: 'password' }),
+          actions.inputs.patch({ type: 'password' }),
         ),
         confirmPassword: v.pipe(
           v.string(),
           v.minLength(6),
-          setWrappers(['label', 'validator']),
+          actions.wrappers.set(['label', 'validator']),
           v.title('Confirm Password'),
-          patchInputs({ type: 'password' }),
+          actions.inputs.patch({ type: 'password' }),
           formConfig({
             validators: [
               (control) => {
@@ -52,7 +51,7 @@ const schema = v.pipe(
         terms: v.pipe(
           v.boolean(),
           v.title('Agree to terms and conditions'),
-          patchProps({
+          actions.props.patch({
             titlePosition: 'right',
           }),
         ),

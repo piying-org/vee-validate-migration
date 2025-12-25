@@ -4,7 +4,7 @@ import {
   formConfig,
   NFCSchema,
   setComponent,
-  setWrappers,
+  actions,
 } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
@@ -23,7 +23,7 @@ const schema = v.pipe(
       email: v.pipe(
         v.string(),
         v.title('Email'),
-        setWrappers(['label', 'validator']),
+        actions.wrappers.set(['label', 'validator']),
         formConfig({
           asyncValidators: [
             async (control) => {

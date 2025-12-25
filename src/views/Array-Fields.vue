@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  NFCSchema,
-  patchAsyncProps,
-  patchInputs,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { NFCSchema, actions, setComponent } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -17,16 +11,16 @@ const schema = v.pipe(
       v.array(
         v.pipe(
           v.object({
-            name: v.pipe(v.string(), v.title('Name'), setWrappers(['label', 'validator'])),
+            name: v.pipe(v.string(), v.title('Name'), actions.wrappers.set(['label', 'validator'])),
             email: v.pipe(
               v.string(),
               v.email(),
               v.title('Email'),
-              setWrappers(['label', 'validator']),
+              actions.wrappers.set(['label', 'validator']),
             ),
           }),
           setComponent('fieldset'),
-          patchAsyncProps({
+          actions.props.patchAsync({
             title: (field) => {
               return `User #${field.keyPath![0]}`
             },
@@ -34,7 +28,7 @@ const schema = v.pipe(
         ),
       ),
       setComponent('array-rw'),
-      patchInputs({ minLength: 1 }),
+      actions.inputs.patch({ minLength: 1 }),
     ),
     __formHelper: v.pipe(NFCSchema, setComponent('formHelper')),
   }),

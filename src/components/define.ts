@@ -18,13 +18,14 @@ import AntFormItem from './piying/ant-design/wrapper/form-item.vue'
 import NaiveUiFormItem from './piying/naive-ui/wrapper/form-item.vue'
 
 import BootstrapFormItem from './piying/bootstrap/wrapper/form-item.vue'
+import { actions } from '@piying/view-core'
 export const fieldConfig = {
   types: {
-    string: { type: InputText, wrappers: ['label'] },
+    string: { type: InputText, actions: [actions.wrappers.set(['label'])] },
     'currency-input': { type: CurrencyInput },
-    number: { type: InputNumber, wrappers: ['label'] },
+    number: { type: InputNumber, actions: [actions.wrappers.set(['label'])] },
     radio: { type: InputRadio },
-    boolean: { type: InputCheckbox, wrappers: ['label'] },
+    boolean: { type: InputCheckbox, actions: [actions.wrappers.set(['label'])] },
     fieldset: { type: FieldsetGroup },
     formHelper: { type: FormHelper },
     'array-rw': { type: ArrayRw },

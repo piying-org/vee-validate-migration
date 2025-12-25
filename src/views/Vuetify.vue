@@ -3,7 +3,7 @@ import { PiyingView } from '@piying/view-vue'
 import {
   formConfig,
   NFCSchema,
-  patchInputs,
+  actions,
   setComponent,
 } from '@piying/view-core'
 import * as v from 'valibot'
@@ -18,20 +18,20 @@ const schema = v.pipe(
       v.email(),
       v.title('Email'),
       setComponent('vuetify-text-field'),
-      patchInputs({ type: 'email' }),
+      actions.inputs.patch({ type: 'email' }),
     ),
     password: v.pipe(
       v.string(),
       v.minLength(6),
       v.title('Password'),
       setComponent('vuetify-text-field'),
-      patchInputs({ type: 'password' }),
+      actions.inputs.patch({ type: 'password' }),
     ),
     passwordConfirm: v.pipe(
       v.string(),
       v.title('Password confirmation'),
       setComponent('vuetify-text-field'),
-      patchInputs({ type: 'password' }),
+      actions.inputs.patch({ type: 'password' }),
       formConfig({
         validators: [
           (control) => {
@@ -45,7 +45,7 @@ const schema = v.pipe(
       v.boolean(),
       v.title('Do you agree?'),
       setComponent('vuetify-checkbox'),
-      patchInputs({ color: 'primary' }),
+      actions.inputs.patch({ color: 'primary' }),
       v.check((value) => {
         return value
       }, 'You must agree to terms and conditions'),

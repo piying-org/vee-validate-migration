@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  formConfig,
-  NFCSchema,
-  patchInputs,
-  patchProps,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { formConfig, NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -22,36 +15,36 @@ const schema = v.pipe(
       v.string(),
       v.title('Full name'),
       setComponent('prime-vue-input-text'),
-      setWrappers(['label', 'validator']),
-      patchProps({ titlePosition: 'top' }),
+      actions.wrappers.set(['label', 'validator']),
+      actions.props.patch({ titlePosition: 'top' }),
     ),
     email: v.pipe(
       v.string(),
       v.email(),
       v.title('Email'),
       setComponent('prime-vue-input-text'),
-      setWrappers(['label', 'validator']),
-      patchInputs({ type: 'email' }),
-      patchProps({ titlePosition: 'top' }),
+      actions.wrappers.set(['label', 'validator']),
+      actions.inputs.patch({ type: 'email' }),
+      actions.props.patch({ titlePosition: 'top' }),
     ),
     password: v.pipe(
       v.string(),
       v.minLength(6),
       v.title('Password'),
       setComponent('prime-vue-input-text'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchInputs({ type: 'password' }),
-      patchProps({ titlePosition: 'top' }),
+      actions.inputs.patch({ type: 'password' }),
+      actions.props.patch({ titlePosition: 'top' }),
     ),
     passwordConfirm: v.pipe(
       v.string(),
       v.title('Password Confirmation'),
       setComponent('prime-vue-input-text'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchInputs({ type: 'password' }),
-      patchProps({ titlePosition: 'top' }),
+      actions.inputs.patch({ type: 'password' }),
+      actions.props.patch({ titlePosition: 'top' }),
 
       formConfig({
         validators: [
@@ -66,11 +59,11 @@ const schema = v.pipe(
       v.picklist(options1.map((item) => item.value)),
       v.title('Type'),
       setComponent('prime-vue-dropdown'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchProps({ titlePosition: 'top' }),
+      actions.props.patch({ titlePosition: 'top' }),
 
-      patchInputs({
+      actions.inputs.patch({
         options: options1,
       }),
     ),
@@ -78,9 +71,9 @@ const schema = v.pipe(
       v.boolean(),
       v.title('Do you agree?'),
       setComponent('prime-vue-checkbox'),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
 
-      patchProps({ titlePosition: 'top' }),
+      actions.props.patch({ titlePosition: 'top' }),
 
       v.check((value) => {
         return value

@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  formConfig,
-  NFCSchema,
-  patchInputs,
-  patchProps,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { formConfig, NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -22,9 +15,9 @@ const schema = v.pipe(
       v.string(),
       v.title('Full name'),
       setComponent('bootstrap-input-text'),
-      setWrappers(['bootstrap-form-item']),
+      actions.wrappers.set(['bootstrap-form-item']),
 
-      patchInputs({
+      actions.inputs.patch({
         placeholder: 'Full name',
       }),
     ),
@@ -33,12 +26,12 @@ const schema = v.pipe(
       v.email(),
       v.title('Email address:'),
       setComponent('bootstrap-input-text'),
-      setWrappers(['bootstrap-form-item']),
-      patchInputs({
+      actions.wrappers.set(['bootstrap-form-item']),
+      actions.inputs.patch({
         type: 'email',
         placeholder: 'Enter email',
       }),
-      patchProps({
+      actions.props.patch({
         description: `We'll never share your email with anyone else.`,
       }),
     ),
@@ -48,17 +41,17 @@ const schema = v.pipe(
       v.minLength(6),
       v.title('Password'),
       setComponent('bootstrap-input-text'),
-      setWrappers(['bootstrap-form-item']),
+      actions.wrappers.set(['bootstrap-form-item']),
 
-      patchInputs({ type: 'password', placeholder: 'Password' }),
+      actions.inputs.patch({ type: 'password', placeholder: 'Password' }),
     ),
     passwordConfirm: v.pipe(
       v.string(),
       v.title('Password Confirmation'),
       setComponent('bootstrap-input-text'),
-      setWrappers(['bootstrap-form-item']),
+      actions.wrappers.set(['bootstrap-form-item']),
 
-      patchInputs({ type: 'password', placeholder: 'Confirm password' }),
+      actions.inputs.patch({ type: 'password', placeholder: 'Confirm password' }),
 
       formConfig({
         validators: [
@@ -73,9 +66,9 @@ const schema = v.pipe(
       v.picklist(options1.map((item) => item.value)),
       v.title('Type'),
       setComponent('bootstrap-dropdown'),
-      setWrappers(['bootstrap-form-item']),
+      actions.wrappers.set(['bootstrap-form-item']),
 
-      patchInputs({
+      actions.inputs.patch({
         options: options1,
         placeholder: 'Select',
       }),
@@ -84,12 +77,12 @@ const schema = v.pipe(
       v.boolean(),
       v.title('Agree to terms and conditions'),
       setComponent('bootstrap-checkbox'),
-      setWrappers(['bootstrap-form-item', 'label']),
+      actions.wrappers.set(['bootstrap-form-item', 'label']),
 
       v.check((value) => {
         return value
       }, `I've read and accept the terms & conditions.`),
-      patchProps({
+      actions.props.patch({
         titlePosition: 'right',
       }),
     ),

@@ -3,10 +3,8 @@ import { PiyingView } from '@piying/view-vue'
 import {
   formConfig,
   NFCSchema,
-  patchInputs,
-  patchProps,
   setComponent,
-  setWrappers,
+  actions,
 } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
@@ -22,9 +20,9 @@ const schema = v.pipe(
       v.string(),
       v.title('Full name'),
       setComponent('ant-input-text'),
-      setWrappers(['ant-form-item']),
+      actions.wrappers.set(['ant-form-item']),
 
-      patchInputs({
+      actions.inputs.patch({
         placeholder: 'Full name',
       }),
     ),
@@ -33,8 +31,8 @@ const schema = v.pipe(
       v.email(),
       v.title('Email'),
       setComponent('ant-input-text'),
-      setWrappers(['ant-form-item']),
-      patchInputs({ type: 'email', placeholder: 'Email Address' }),
+      actions.wrappers.set(['ant-form-item']),
+      actions.inputs.patch({ type: 'email', placeholder: 'Email Address' }),
     ),
 
     password: v.pipe(
@@ -42,17 +40,17 @@ const schema = v.pipe(
       v.minLength(6),
       v.title('Password'),
       setComponent('ant-input-text'),
-      setWrappers(['ant-form-item']),
+      actions.wrappers.set(['ant-form-item']),
 
-      patchInputs({ type: 'password', placeholder: 'Password' }),
+      actions.inputs.patch({ type: 'password', placeholder: 'Password' }),
     ),
     passwordConfirm: v.pipe(
       v.string(),
       v.title('Password Confirmation'),
       setComponent('ant-input-text'),
-      setWrappers(['ant-form-item']),
+      actions.wrappers.set(['ant-form-item']),
 
-      patchInputs({ type: 'password', placeholder: 'Confirm password' }),
+      actions.inputs.patch({ type: 'password', placeholder: 'Confirm password' }),
 
       formConfig({
         validators: [
@@ -67,9 +65,9 @@ const schema = v.pipe(
       v.picklist(options1.map((item) => item.value)),
       v.title('Type'),
       setComponent('ant-dropdown'),
-      setWrappers(['ant-form-item']),
+      actions.wrappers.set(['ant-form-item']),
 
-      patchInputs({
+      actions.inputs.patch({
         options: options1,
         placeholder: 'Select',
       }),
@@ -78,12 +76,12 @@ const schema = v.pipe(
       v.boolean(),
       v.title('Agree to terms and conditions'),
       setComponent('ant-checkbox'),
-      setWrappers(['ant-form-item', 'label']),
+      actions.wrappers.set(['ant-form-item', 'label']),
 
       v.check((value) => {
         return value
       }, `I've read and accept the terms & conditions.`),
-      patchProps({
+      actions.props.patch({
         titlePosition: 'right',
       }),
     ),

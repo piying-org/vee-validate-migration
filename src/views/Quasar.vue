@@ -3,7 +3,7 @@ import { PiyingView } from '@piying/view-vue'
 import {
   formConfig,
   NFCSchema,
-  patchInputs,
+  actions,
   setComponent,
 } from '@piying/view-core'
 import * as v from 'valibot'
@@ -21,7 +21,7 @@ const schema = v.pipe(
       v.email(),
       v.title('Email'),
       setComponent('quasar-input-text'),
-      patchInputs({ type: 'email' }),
+      actions.inputs.patch({ type: 'email' }),
     ),
     fullName: v.pipe(v.string(), v.title('Full name'), setComponent('quasar-input-text')),
 
@@ -30,14 +30,14 @@ const schema = v.pipe(
       v.minLength(6),
       v.title('Password'),
       setComponent('quasar-input-text'),
-      patchInputs({ type: 'password' }),
+      actions.inputs.patch({ type: 'password' }),
     ),
     passwordConfirm: v.pipe(
       v.string(),
       v.title('Password Confirmation'),
       setComponent('quasar-input-text'),
 
-      patchInputs({ type: 'password' }),
+      actions.inputs.patch({ type: 'password' }),
 
       formConfig({
         validators: [
@@ -52,7 +52,7 @@ const schema = v.pipe(
       v.picklist(options1.map((item) => item.value)),
       v.title('Type'),
       setComponent('quasar-dropdown'),
-      patchInputs({
+      actions.inputs.patch({
         options: options1,
       }),
     ),

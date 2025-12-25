@@ -2,9 +2,8 @@
 import { PiyingView } from '@piying/view-vue'
 import {
   NFCSchema,
-  patchInputs,
+  actions,
   setComponent,
-  setWrappers,
 } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
@@ -17,10 +16,10 @@ const schema = v.pipe(
       v.minValue(100),
       v.maxValue(1000),
       setComponent('currency-input'),
-      patchInputs({
+      actions.inputs.patch({
         options: { currency: 'US' },
       }),
-      setWrappers(['validator']),
+      actions.wrappers.set(['validator']),
     ),
     __formHelper: v.pipe(NFCSchema, setComponent('formHelper')),
   }),

@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  formConfig,
-  NFCSchema,
-  patchAttributes,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { formConfig, NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -16,15 +10,15 @@ const schema = v.pipe(
     password: v.pipe(
       v.string(),
       v.minLength(5),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
       v.title('Password'),
-      patchAttributes({ type: 'password' }),
+      actions.attributes.patch({ type: 'password' }),
     ),
     passwordConfirmation: v.pipe(
       v.string(),
-      setWrappers(['label', 'validator']),
+      actions.wrappers.set(['label', 'validator']),
       v.title('Confirm Password'),
-      patchAttributes({ type: 'password' }),
+      actions.attributes.patch({ type: 'password' }),
       formConfig({
         validators: [
           (control) => {

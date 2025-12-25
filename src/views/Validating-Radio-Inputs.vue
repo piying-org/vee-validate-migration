@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { PiyingView } from '@piying/view-vue'
-import {
-  NFCSchema,
-  patchInputs,
-  patchProps,
-  setComponent,
-  setWrappers,
-} from '@piying/view-core'
+import { NFCSchema, setComponent, actions } from '@piying/view-core'
 import * as v from 'valibot'
 import { fieldConfig } from '@/components/define'
 import { ref } from 'vue'
@@ -16,19 +10,19 @@ const schema = v.pipe(
     v.object({
       drink: v.pipe(
         v.optional(v.picklist(['None', 'Tea', 'Coffee'], 'You must choose a drink')),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { label: 'None', value: '' },
             { label: 'Tea', value: 'Tea' },
             { label: 'Coffee', value: 'Coffee' },
           ],
         }),
-        setWrappers(['validator']),
+        actions.wrappers.set(['validator']),
         setComponent('radio'),
         v.check((value) => {
           return !!value && !!value.length
         }, 'You must choose a drink'),
-        patchProps({
+        actions.props.patch({
           forceShowError: true,
         }),
       ),
